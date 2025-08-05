@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 from datetime import datetime
 
-app = Flask(__name__, static_folder="dist", static_url_path="/static")
+app = Flask(__name__, static_folder="static", static_url_path="/static")
 CORS(app)
 
 # Configuration
@@ -158,5 +158,4 @@ def internal_error(error):
     return jsonify({"error": "Erreur interne du serveur"}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port) 
+    app.run(debug=True) 
